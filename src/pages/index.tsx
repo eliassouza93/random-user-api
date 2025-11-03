@@ -1,12 +1,12 @@
 import axios from "axios";
-import { Item, type userType } from "../components/Lista";
+import { Item, type UserType } from "../components/Lista";
 import { useState } from "react";
 
-import { Container, GenerateItemButton, Title } from "./styles";
+import { Container, GenerateItemButton } from "./styles";
 
 export function Home() {
   const app = axios;
-  const [user, setUser] = useState<userType[]>([]);
+  const [user, setUser] = useState<UserType[]>([]);
   const [isLoading] = useState(false);
 
   const handleUser = async () => {
@@ -22,14 +22,12 @@ export function Home() {
 
   return (
     <Container>
- 
       <GenerateItemButton onClick={handleUser} disabled={isLoading}>
         {isLoading ? "Buscando..." : "Gerar Novo Usuário"}
       </GenerateItemButton>{" "}
       {user.map((item) => (
         <Item key={item.cell} {...item} />
       ))}{" "}
-     
     </Container>
   );
 }
