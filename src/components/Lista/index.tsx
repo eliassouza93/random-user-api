@@ -27,7 +27,7 @@ type LoginType = {
   password: string;
 };
 
-export type userType = {
+export type UserType = {
   name: UserLastType;
   location: LocationType;
   login: LoginType;
@@ -38,7 +38,7 @@ export type userType = {
   gender: string;
 };
 
-export function Item(props: userType) {
+export function Item(props: UserType) {
   const { name, location, login, picture, cell, dob, email, gender } = props;
   const dataNascimento = new Date(dob.date).toLocaleDateString("pt-BR");
 
@@ -47,7 +47,9 @@ export function Item(props: userType) {
     if (gender === "male") return "Homem";
     return "Não informado";
   };
+
   const tradutorGender = traduzGenero(gender);
+
   return (
     <Card>
       <Avatar src={picture.medium} alt={`${name.first} ${name.last}`} />{" "}
