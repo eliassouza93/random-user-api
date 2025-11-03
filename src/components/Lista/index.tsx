@@ -42,11 +42,11 @@ export function Item(props: userType) {
   const { name, location, login, picture, cell, dob, email, gender } = props;
   const dataNascimento = new Date(dob.date).toLocaleDateString("pt-BR");
 
-  function traduzGenero(gender: any) {
+  const traduzGenero = (gender: any) => {
     if (gender === "female") return "Mulher";
     if (gender === "male") return "Homem";
     return "Não informado";
-  }
+  };
   const tradutorGender = traduzGenero(gender);
   return (
     <Card>
